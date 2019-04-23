@@ -35,6 +35,16 @@ body {
   background-color: #6200EE !important;
 }
 
+.btn{
+  border: 2px solid white;
+  color: white;
+}
+.btn:hover{
+  border: 2px solid white;
+  color: white;
+  background-color: none;
+}
+
 .navbar-brand {
   color: white !important;
 }
