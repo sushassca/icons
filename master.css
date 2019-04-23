@@ -30,6 +30,11 @@ body {
   stroke: #6f17ed;
 }
 
+.visible{
+  opacity: 1!important;
+  filter: grayscale(0%)!important;
+}
+
 /* NAVBAR */
 .bg-light {
   background-color: #6200EE !important;
