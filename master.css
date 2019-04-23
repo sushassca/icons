@@ -83,7 +83,7 @@ color: white;
 .card_icon img {
   vertical-align: middle;
   border-style: none;
-  height: 40px;
+  height: auto;
   margin-top: 30px;
 }
 
