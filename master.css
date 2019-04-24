@@ -187,6 +187,10 @@ a:hover {
   right: 80px;
 }
 
+#svg.active{
+  right: 65px;
+}
+
 .active {
   background-color: white !important;
   color: #6200EE !important;
