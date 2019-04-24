@@ -84,6 +84,9 @@ body {
 
 /* LAYOUT */
 @media (min-width: 768px) {
+  p{
+        font-size: 0.7rem;
+  }
   .col-md-3 {
     -ms-flex: 0 0 23%;
     flex: 0 0 23%;
