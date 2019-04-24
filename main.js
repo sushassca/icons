@@ -1,5 +1,9 @@
 $(document).ready(function() {
-
+  // get files
+  var fs = require('fs');
+  var files = fs.readdirSync('/assets/');
+  console.log(files);
+  // copy paste
   $( ".colors" ).click(function(element) {
     element = $(this).find("p");
     var $temp = $("<input>");
@@ -9,7 +13,7 @@ $(document).ready(function() {
     $temp.remove();
     popup();
   });
-
+// popup
 function popup(){
   $("#popup").css("bottom","2%");
   setTimeout(function () {

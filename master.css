@@ -106,6 +106,14 @@ body {
 
 }
 
+.button_change{
+  margin: 0 10px;
+}
+
+.button_change.active{
+  background-color: white;
+  color: #6200EE;
+}
 .inverse{
   background-color: gray;
   color: white;
