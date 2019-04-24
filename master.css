@@ -16,17 +16,35 @@ html {
 body {
   background: #FFFFFF;
 }
+
 /* off canvas */
-.container-fluid{
+.container-fluid {
   display: inline-block;
   float: right;
-  transition: 0.6s;
+  transition: 0.3s;
+  margin-top: 56px;
 }
 
-.off_canvas{
+#off_canvas {
+  position: fixed;
+  height: 100%;
+  width: 0%;
+  background-color: red;
+  transition: 0.3s;
+  top: 0;
+}
+
+#canvas {
+  cursor: pointer;
+}
+
+.off_canvas {
   width: 70%;
 }
 
+#off_canvas.expand_canvas {
+  width: 30%;
+}
 
 /* PADDING */
 .padding_10 {
@@ -41,13 +59,13 @@ body {
   stroke: #6f17ed;
 }
 
-.visible{
-  opacity: 1!important;
-  filter: grayscale(0%)!important;
+.visible {
+  opacity: 1 !important;
+  filter: grayscale(0%) !important;
 }
 
 /* ALERTS */
-#popup{
+#popup {
   width: 250px;
   height: 50px;
   position: fixed;
@@ -61,27 +79,33 @@ body {
   text-align: center;
 }
 
-#popup h6{
+#popup h6 {
   margin: 16px;
   display: inline-block;
 }
-#popup img{
+
+#popup img {
   display: inline-block;
   height: 26px;
   margin-bottom: 5px;
   margin-right: 5px;
 }
+
 /* NAVBAR */
 .bg-light {
   background-color: #6200EE !important;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
 }
 
-.btn{
+.btn {
   border: 2px solid white;
   color: white;
-    background-color: transparent;
+  background-color: transparent;
 }
-.btn:hover{
+
+.btn:hover {
   border: 2px solid white;
   color: white;
   background-color: transparent;
@@ -93,9 +117,10 @@ body {
 
 /* LAYOUT */
 @media (min-width: 768px) {
-  p{
-        font-size: 0.7rem;
+  p {
+    font-size: 0.7rem;
   }
+
   .col-md-3 {
     -ms-flex: 0 0 23%;
     flex: 0 0 23%;
@@ -110,7 +135,7 @@ body {
     max-width: 31.3%;
   }
 
-  .col-md-6{
+  .col-md-6 {
     -ms-flex: 0 0 48%;
     flex: 0 0 48%;
     margin: 1%;
@@ -118,30 +143,29 @@ body {
   }
 }
 
-
 .card_icon {
   text-align: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-
 }
 
-.button_change{
+.button_change {
   margin: 0 10px;
   right: 0;
   position: absolute;
 }
 
-#svg{
+#svg {
   right: 80px;
 }
 
-.active{
-  background-color: white!important;
-  color: #6200EE!important;
-  border-color: white!important;
+.active {
+  background-color: white !important;
+  color: #6200EE !important;
+  border-color: white !important;
 }
-.inverse{
+
+.inverse {
   background-color: gray;
   color: white;
 }
