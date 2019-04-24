@@ -1,8 +1,6 @@
 $(document).ready(function() {
   // get files
-  var fs = require('fs');
-  var files = fs.readdirSync('/assets/');
-  console.log(files);
+
   // copy paste
   $( ".colors" ).click(function(element) {
     element = $(this).find("p");
