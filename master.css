@@ -25,11 +25,11 @@ body {
   transition: 0.3s;
 }
 
-.miniblock{
+.miniblock {
   height: 56px;
 }
 
-.margin_top_56{
+.margin_top_56 {
   margin-top: 56px;
 }
 
@@ -40,7 +40,6 @@ body {
   background-color: #6200EE;
   transition: 0.3s;
   top: 0;
-
 }
 
 #canvas {
@@ -61,11 +60,12 @@ body {
 }
 
 a {
-    color: white;
-    font-size: 14px;
+  color: white;
+  font-size: 14px;
 }
+
 a:hover {
-    color: white;
+  color: white;
 }
 
 /* COLORS */
@@ -113,9 +113,9 @@ a:hover {
   background-color: #6200EE !important;
 }
 
-#canvas{
+#canvas {
   position: relative;
-margin-top: 5px;
+  margin-top: 5px;
 }
 
 .btn {
@@ -138,6 +138,14 @@ margin-top: 5px;
 @media (min-width: 768px) {
   p {
     font-size: 0.7rem;
+  }
+
+  .col-md-2 {
+    -ms-flex: 0 0 14.666667%;
+    flex: 0 0 14.666667%;
+    max-width: 14.666667%;
+    margin: 1%;
+    max-width: 14.666667%;
   }
 
   .col-md-3 {
