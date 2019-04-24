@@ -83,7 +83,7 @@ body {
 }
 
 /* LAYOUT */
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .col-md-3 {
     -ms-flex: 0 0 23%;
     flex: 0 0 23%;
