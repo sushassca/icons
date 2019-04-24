@@ -1,6 +1,26 @@
 $(document).ready(function() {
-  // get files
+  // toggle
+  $( "#svg" ).click(function() {
+    $("a").each(function() {
+     var toggle = this.href;
+     var new_src = toggle.replace(/\.pdf/, '.svg');
+     $(this).attr('href', new_src);
+     console.log(toggle);
+    });
+    $("#pdf").removeClass("active");
+    $("#svg").addClass("active");
+  });
 
+  $( "#pdf" ).click(function() {
+  $("a").each(function() {
+   var toggle = this.href;
+   var new_src = toggle.replace(/\.svg$/, '.pdf');
+   $(this).attr('href', new_src);
+   console.log(toggle);
+  });
+  $("#pdf").addClass("active");
+  $("#svg").removeClass("active");
+  });
   // copy paste
   $( ".colors" ).click(function(element) {
     element = $(this).find("p");
