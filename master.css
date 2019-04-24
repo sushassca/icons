@@ -87,7 +87,7 @@ a:hover {
   height: 50px;
   position: fixed;
   bottom: -20%;
-  left: 2%;
+  right: 2%;
   background-color: #6200EE;
   z-index: 1;
   transition: 0.3s;
