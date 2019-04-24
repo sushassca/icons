@@ -100,6 +100,13 @@ body {
     margin: 1%;
     max-width: 31.3%;
   }
+
+  .col-md-6{
+    -ms-flex: 0 0 48%;
+    flex: 0 0 48%;
+    margin: 1%;
+    max-width: 48%;
+  }
 }
 
 
