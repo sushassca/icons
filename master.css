@@ -122,7 +122,9 @@ a:hover {
   border: 2px solid white;
   color: white;
   background-color: transparent;
-  transition: 0.2s;
+  transition: 0.3s;
+  font-weight: 500;
+  transition-timing-function: ease-in-out;
 }
 
 .btn:hover {
@@ -196,7 +198,7 @@ a:hover {
   color: #6200EE !important;
   border-color: white !important;
   padding: 6px 20px!important;
-  font-weight: 500;
+
 }
 
 .inverse {
