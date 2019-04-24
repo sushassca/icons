@@ -1,8 +1,7 @@
 $(document).ready(function() {
   // canvas
   $("#canvas").click(function() {
-    $(".container-fluid").toggleClass("off_canvas");
-    $("#off_canvas").toggleClass("expand_canvas");
+  $( "html" ).scrollTop( 0 );
   });
   // toggle
   $("#svg").click(function() {

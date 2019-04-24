@@ -22,6 +22,13 @@ body {
   display: inline-block;
   float: right;
   transition: 0.3s;
+}
+
+.miniblock{
+  height: 56px;
+}
+
+.margin_top_56{
   margin-top: 56px;
 }
 
@@ -29,9 +36,10 @@ body {
   position: fixed;
   height: 100%;
   width: 0%;
-  background-color: red;
+  background-color: #6200EE;
   transition: 0.3s;
   top: 0;
+
 }
 
 #canvas {
@@ -39,16 +47,24 @@ body {
 }
 
 .off_canvas {
-  width: 70%;
+  width: calc(100% - 160px);
 }
 
 #off_canvas.expand_canvas {
-  width: 30%;
+  width: 160px;
 }
 
 /* PADDING */
 .padding_10 {
   padding: 10px;
+}
+
+a {
+    color: white;
+    font-size: 14px;
+}
+a:hover {
+    color: white;
 }
 
 /* COLORS */
@@ -94,9 +110,11 @@ body {
 /* NAVBAR */
 .bg-light {
   background-color: #6200EE !important;
-  z-index: 1;
-  position: fixed;
-  width: 100%;
+}
+
+#canvas{
+  position: relative;
+margin-top: 5px;
 }
 
 .btn {

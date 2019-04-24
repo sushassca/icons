@@ -12,22 +12,37 @@
 
 <body>
   <!-- Image and text -->
-  <nav class="navbar bg-light">
-    <a id="canvas" class="navbar-brand" >
-      <img src="assets/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-      .icons
-    </a>
+  <nav style="height:56px;" class="navbar bg-light">
 
-      <button id="svg" class="btn  button_change active" >SVG</a>
-      <button id="pdf" class="btn  button_change" >PDF</a>
+
+    <button id="svg" class="btn  button_change active">SVG</a>
+      <button id="pdf" class="btn  button_change">PDF</a>
 
   </nav>
-  <div id="off_canvas"></div>
-  <div class="container-fluid">
-    <div id="popup">
-      <h6 >copied to clipboard </h6>  <img src="alert.png" alt="dude">
+  <div id="off_canvas" class="expand_canvas">
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-12">
+          <a id="canvas" class="navbar-brand">
+            <img src="assets/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            .icons
+          </a>
+          <h3 class="padding_10 "><a href="#row_colors">COLORS</a></h3>
+          <h3 class="padding_10 "><a href="#row_apps">APP ICONS</a></h3>
+          <h3 class="padding_10 "><a href="#row_nav">NAVBAR ICONS</a></h3>
+          <h3 class="padding_10 "><a href="#row_bar">BAR ICONS</a></h3>
+          <h3 class="padding_10 "><a href="#row_login">LOGIN ICONS</a></h3>
+          <h3 class="padding_10 "><a href="#row_setup">SETUP ICONS</a></h3>
+        </div>
+      </div>
     </div>
-    <div class="row">
+  </div>
+  <div class="container-fluid off_canvas">
+    <div id="popup">
+      <h6>copied to clipboard </h6> <img src="alert.png" alt="dude">
+    </div>
+
+    <div id="row_colors" class="row">
       <div class="col-md-12">
         <h3 class="padding_10 primary">COLORS</h3>
       </div>
@@ -71,7 +86,7 @@
         <a><img src="assets/colors/erro.svg" alt=""></a>
         <p>#FF6060</p>
 
-        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -160,7 +175,7 @@
       </div>
 
     </div>
-    <div class="row">
+    <div id="row_apps" class="row">
       <div class="col-md-12">
         <h3 class="padding_10 primary">ICONS APP</h3>
       </div>
@@ -231,7 +246,7 @@
         <p>.historico</p>
       </div>
     </div>
-    <div class="row">
+    <div id="row_nav" class="row">
       <div class="col-md-12">
         <h3 class="padding_10 primary">BOTTOM NAVBAR ICONS - STROKE</h3>
       </div>
@@ -262,7 +277,7 @@
         <p>.logo_clean</p>
       </div>
     </div>
-    <div class="row">
+    <div id="row_bar" class="row">
       <div class="col-md-12">
         <h3 class="padding_10 primary">BOTTOM OTHER BAR ICONS - STROKE</h3>
       </div>
@@ -477,7 +492,7 @@
         <p>.shield_2</p>
       </div>
     </div>
-    <div class="row">
+    <div id="row_login" class="row">
       <div class="col-md-12">
         <h3 class="padding_10 primary">LOGIN ICONS</h3>
       </div>
@@ -512,7 +527,7 @@
         <p>.face_id_3</p>
       </div>
     </div>
-    <div class="row">
+    <div id="row_setup" class="row">
       <div class="col-md-12">
         <h3 class="padding_10 primary">SETUP INICIAL</h3>
       </div>
