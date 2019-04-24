@@ -1,7 +1,8 @@
 $(document).ready(function() {
-  // folders
-
-
+  // canvas
+  $("#canvas").click(function() {
+    $(".container-fluid").toggleClass("off_canvas");
+  });
   // toggle
   $("#svg").click(function() {
     $("a").each(function() {

@@ -16,7 +16,16 @@ html {
 body {
   background: #FFFFFF;
 }
+/* off canvas */
+.container-fluid{
+  display: inline-block;
+  float: right;
+  transition: 0.6s;
+}
 
+.off_canvas{
+  width: 70%;
+}
 
 
 /* PADDING */
