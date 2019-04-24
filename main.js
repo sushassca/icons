@@ -1,30 +1,6 @@
 $(document).ready(function() {
   // folders
-  var filenames = [],
-    foldernames = [];
-  var url = "https://sleepy-archimedes-a43817.netlify.com/assets/";
-  var req = new XMLHttpRequest();
-  req.open("GET", url, true);
-  req.onreadystatechange = function() {
-    if (req.readyState === 4) {
-      document.write(req.responseText);
-      getNames();
-    }
-  };
-  req.send();
 
-  function getNames() {
-    var files = document.querySelectorAll("a.icon.file");
-    var folders = document.querySelectorAll("a.icon.dir");
-    files.forEach(function(item) {
-      filenames.push(item.textContent)
-    })
-    folders.forEach(function(item) {
-      foldernames.push(item.textContent.slice(0, -1))
-    })
-    console.log(filenames);
-    console.log(foldernames);
-  }
 
   // toggle
   $("#svg").click(function() {
