@@ -2,7 +2,7 @@ $(document).ready(function() {
   // folders
   var filenames = [],
     foldernames = [];
-  var url = "assets/";
+  var url = "https://sleepy-archimedes-a43817.netlify.com/assets/";
   var req = new XMLHttpRequest();
   req.open("GET", url, true);
   req.onreadystatechange = function() {
