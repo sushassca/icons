@@ -196,6 +196,7 @@ a:hover {
   color: #6200EE !important;
   border-color: white !important;
   padding: 6px 20px!important;
+  font-weight: 500;
 }
 
 .inverse {
