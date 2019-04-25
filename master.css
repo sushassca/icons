@@ -37,7 +37,8 @@ body {
   position: fixed;
   height: 100%;
   width: 0%;
-  background-color: #6200EE;
+  background: rgb(155,81,224);
+background: linear-gradient(180deg, rgba(155,81,224,1) 80%, rgba(215,65,167,1) 100%);
   transition: 0.3s;
   top: 0;
 }
@@ -110,7 +111,9 @@ a:hover {
 
 /* NAVBAR */
 .bg-light {
-  background-color: #6200EE !important;
+  background-color: transparent !important;
+  background: rgb(155,81,224);
+background: linear-gradient(90deg, rgba(155,81,224,1) 80%, rgba(215,65,167,1) 100%);
 }
 
 #canvas {
