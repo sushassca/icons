@@ -57,10 +57,14 @@
       }).catch(e => alert(e));
   }
 
-  function startRecording() {
-    recorder = new MediaRecorder(stream, {
-      mimeType: 'video/mp4'
-    });
+  function startRecording(stream) {
+    try {
+       recorder = new MediaRecorder(stream, {mimeType : "video/webm"});
+     } catch (e) {
+       alert('Exception while creating MediaRecorder: ' + e);
+       return;
+     }
+
     recorder.start();
     stopBtn.removeAttribute('disabled');
     startBtn.disabled = true;
