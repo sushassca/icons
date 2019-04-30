@@ -57,9 +57,9 @@
       }).catch(e => alert(e));
   }
 
-  function startRecording() {
-  
-    function record(length,stream) {
+  function startRecording(length,stream) {
+
+
         var recorder = new window.MediaRecorder(stream);
 
         recorder.ondataavailable = function(event) {
@@ -79,9 +79,9 @@
         };
 
         recorder.start(length);
-    }
 
-    recorder.start();
+
+
     stopBtn.removeAttribute('disabled');
     startBtn.disabled = true;
   }
