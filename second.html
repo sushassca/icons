@@ -57,7 +57,8 @@
       }).catch(e => alert(e));
   }
 
-  function startRecording(stream) {
+  function startRecording() {
+    alert("video");
     try {
        recorder = new MediaRecorder(stream, {mimeType : "video/webm"});
      } catch (e) {
