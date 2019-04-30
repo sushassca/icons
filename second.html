@@ -60,7 +60,7 @@
   function startRecording(length,stream) {
 
 
-        var recorder = new window.MediaRecorder(stream);
+        var recorder = new window.MediaRecorder(stream, {mimeType : "video/mp4"});
 
         recorder.ondataavailable = function(event) {
             if (recorder.state == 'recording') {
@@ -79,9 +79,6 @@
         };
 
         recorder.start(length);
-
-
-
     stopBtn.removeAttribute('disabled');
     startBtn.disabled = true;
   }
