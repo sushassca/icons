@@ -16,6 +16,22 @@
   <script src="jquery.min.js" charset="utf-8"></script>
   <script src="main.js" charset="utf-8"></script>
   <script type="text/javascript">
+  const hdConstraints = {
+  video: {width: {min: 1280}, height: {min: 720}}
+};
+
+navigator.mediaDevices.getUserMedia(hdConstraints).
+  then((stream) => {video.srcObject = stream});
+
+
+
+const vgaConstraints = {
+  video: {width: {exact: 640}, height: {exact: 480}}
+};
+
+navigator.mediaDevices.getUserMedia(vgaConstraints).
+  then((stream) => {video.srcObject = stream});
+
     const videoElement = document.querySelector('video');
     const audioSelect = document.querySelector('select#audioSource');
     const videoSelect = document.querySelector('select#videoSource');
