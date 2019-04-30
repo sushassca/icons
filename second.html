@@ -27,7 +27,7 @@
     </ul>
 
   </div>
-  <video id='video' style="width:400px;background-color:green;"  autoplay></video>
+  <video id='video' style="width:400px;background-color:red;"  autoplay></video>
   <!-- SCRIPTS -->
 
   <script type="text/javascript">
@@ -57,10 +57,10 @@
       }).catch(e => alert(e));
   }
 
-  function startRecording(length,stream) {
-
-
-        var recorder = new window.MediaRecorder(stream, {mimeType : "video/mp4"});
+  function startRecording() {
+    alert("video");
+    function record(length,stream) {
+        var recorder = new window.MediaRecorder(stream);
 
         recorder.ondataavailable = function(event) {
             if (recorder.state == 'recording') {
@@ -79,6 +79,9 @@
         };
 
         recorder.start(length);
+    }
+
+    recorder.start();
     stopBtn.removeAttribute('disabled');
     startBtn.disabled = true;
   }
