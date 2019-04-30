@@ -11,42 +11,74 @@
 </head>
 
 <body>
-  <!-- Image and text -->
-  <nav style="height:56px;" class="navbar bg-light">
-
-
-    <button id="svg" class="btn  button_change active">SVG</a>
-      <button id="pdf" class="btn  button_change">PDF</a>
-
-  </nav>
-  <div id="off_canvas" class="expand_canvas">
-    <div class="container ">
-      <div class="row">
-        <div class="col-md-12">
-          <a id="canvas" class="navbar-brand">
-            <img src="assets/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-            .icons
-          </a>
-          <h3 class="padding_10 "><a href="#row_colors">COLORS</a></h3>
-          <h3 class="padding_10 "><a href="#row_apps">APP ICONS</a></h3>
-          <h3 class="padding_10 "><a href="#row_nav">NAVBAR ICONS</a></h3>
-          <h3 class="padding_10 "><a href="#row_bar">BAR ICONS</a></h3>
-          <h3 class="padding_10 "><a href="#row_login">LOGIN ICONS</a></h3>
-          <h3 class="padding_10 "><a href="#row_setup">SETUP ICONS</a></h3>
-          <h3 class="padding_10 "><a href="#row_flags">FLAG ICONS</a></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid off_canvas">
-    <div id="popup">
-      <h6>copied to clipboard </h6> <img src="alert.png" alt="dude">
-    </div>
-
-  </div>
+  <input type="file" accept="video/*;capture=camcorder">
+  <input type="file" accept="audio/*;capture=microphone">
   <!-- SCRIPTS -->
   <script src="jquery.min.js" charset="utf-8"></script>
   <script src="main.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    const videoElement = document.querySelector('video');
+    const audioSelect = document.querySelector('select#audioSource');
+    const videoSelect = document.querySelector('select#videoSource');
+
+    navigator.mediaDevices.enumerateDevices()
+      .then(gotDevices).then(getStream).catch(handleError);
+
+    audioSelect.onchange = getStream;
+    videoSelect.onchange = getStream;
+
+    function gotDevices(deviceInfos) {
+      for (let i = 0; i !== deviceInfos.length; ++i) {
+        const deviceInfo = deviceInfos[i];
+        const option = document.createElement('option');
+        option.value = deviceInfo.deviceId;
+        if (deviceInfo.kind === 'audioinput') {
+          option.text = deviceInfo.label ||
+            'microphone ' + (audioSelect.length + 1);
+          audioSelect.appendChild(option);
+        } else if (deviceInfo.kind === 'videoinput') {
+          option.text = deviceInfo.label || 'camera ' +
+            (videoSelect.length + 1);
+          videoSelect.appendChild(option);
+        } else {
+          console.log('Found another kind of device: ', deviceInfo);
+        }
+      }
+    }
+
+    function getStream() {
+      if (window.stream) {
+        window.stream.getTracks().forEach(function(track) {
+          track.stop();
+        });
+      }
+
+      const constraints = {
+        audio: {
+          deviceId: {
+            exact: audioSelect.value
+          }
+        },
+        video: {
+          deviceId: {
+            exact: videoSelect.value
+          }
+        }
+      };
+
+      navigator.mediaDevices.getUserMedia(constraints).
+      then(gotStream).catch(handleError);
+    }
+
+    function gotStream(stream) {
+      window.stream = stream; // make stream available to console
+      videoElement.srcObject = stream;
+    }
+
+    function handleError(error) {
+      console.error('Error: ', error);
+    }
+  </script>
 </body>
 
 </html>
