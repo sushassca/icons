@@ -11,40 +11,45 @@
 </head>
 
 <body>
-  <video autoplay></video>
-  <img src="">
-  <canvas style="display:none;"></canvas>
-
-  <script>
-  const captureVideoButton =
-    document.querySelector('#screenshot .capture-button');
-  const screenshotButton = document.querySelector('#screenshot-button');
-  const img = document.querySelector('#screenshot img');
-  const video = document.querySelector('#screenshot video');
-
-  const canvas = document.createElement('canvas');
-
-  captureVideoButton.onclick = function() {
-    navigator.mediaDevices.getUserMedia(constraints).
-      then(handleSuccess).catch(handleError);
-  };
-
-  screenshotButton.onclick = video.onclick = function() {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
-    // Other browsers will fall back to image/png
-    img.src = canvas.toDataURL('image/webp');
-  };
-
-  function handleSuccess(stream) {
-    screenshotButton.disabled = false;
-    video.srcObject = stream;
-  }
-  </script>
+  <video id="video" width="640" height="480" autoplay></video>
+  <button id="snap">Snap Photo</button>
+  <canvas id="canvas" width="640" height="480"></canvas>
   <!-- SCRIPTS -->
   <script src="jquery.min.js" charset="utf-8"></script>
   <script src="main.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  // Grab elements, create settings, etc.
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  // Not adding `{ audio: true }` since we only want video now
+  navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+      //video.src = window.URL.createObjectURL(stream);
+      video.srcObject = stream;
+      video.play();
+  });
+}
+
+/* Legacy code below: getUserMedia
+else if(navigator.getUserMedia) { // Standard
+  navigator.getUserMedia({ video: true }, function(stream) {
+      video.src = stream;
+      video.play();
+  }, errBack);
+} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+  navigator.webkitGetUserMedia({ video: true }, function(stream){
+      video.src = window.webkitURL.createObjectURL(stream);
+      video.play();
+  }, errBack);
+} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
+  navigator.mozGetUserMedia({ video: true }, function(stream){
+      video.srcObject = stream;
+      video.play();
+  }, errBack);
+}
+*/
+  </script>
 </body>
 
 </html>
