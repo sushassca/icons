@@ -61,18 +61,24 @@
     alert("video");
     function record(length,stream) {
         var recorder = new window.MediaRecorder(stream);
+try {
+  recorder.ondataavailable = function(event) {
+      if (recorder.state == 'recording') {
+          var blob = new window.Blob([event.data], {
+              type: 'audio/ogg'
+          });
 
-        recorder.ondataavailable = function(event) {
-            if (recorder.state == 'recording') {
-                var blob = new window.Blob([event.data], {
-                    type: 'audio/ogg'
-                });
+          // use the created blob
 
-                // use the created blob
+          recorder.stop();
+      }
+  };
 
-                recorder.stop();
-            }
-        };
+} catch (e) {
+
+} finally {
+
+}
 
         recorder.onstop = function() {
             recorder = null;
