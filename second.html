@@ -54,7 +54,7 @@
         reqBtn.style.display = 'none';
         startBtn.removeAttribute('disabled');
         video.src = URL.createObjectURL(stream);
-      }).catch(e => console.error(e));
+      }).catch(e => alert(e));
   }
 
   function startRecording() {
