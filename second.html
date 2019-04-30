@@ -59,12 +59,27 @@
 
   function startRecording() {
     alert("video");
-    try {
-       recorder = new MediaRecorder(stream, {mimeType : "video/webm"});
-     } catch (e) {
-       alert('Exception while creating MediaRecorder: ' + e);
-       return;
-     }
+    function record(length,stream) {
+        var recorder = new window.MediaRecorder(stream);
+
+        recorder.ondataavailable = function(event) {
+            if (recorder.state == 'recording') {
+                var blob = new window.Blob([event.data], {
+                    type: 'audio/ogg'
+                });
+
+                // use the created blob
+
+                recorder.stop();
+            }
+        };
+
+        recorder.onstop = function() {
+            recorder = null;
+        };
+
+        recorder.start(length);
+    }
 
     recorder.start();
     stopBtn.removeAttribute('disabled');
