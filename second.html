@@ -47,6 +47,7 @@
     .bottom {
       clear: both;
       padding-top: 10px;
+      color: black;
     }
   </style>
 </head>
@@ -57,14 +58,14 @@
       Start
     </div>
     <h2>Preview</h2>
-    <video id="preview" width="160" height="120" autoplay muted></video>
+    <video id="preview" width="200" height="100" autoplay muted></video>
   </div>
   <div class="right">
     <div id="stopButton" class="button">
       Stop
     </div>
     <h2>Recording</h2>
-    <video id="recording" width="160" height="120" controls></video>
+    <video id="recording" width="200" height="100" controls></video>
     <a id="downloadButton" class="button">
       Download
     </a>
@@ -137,8 +138,8 @@
           let recordedBlob = new Blob(recordedChunks, {
             type: "video/webm"
           });
-          recording.src = URL.createObjectURL(recordedBlob);
-          downloadButton.href = recording.src;
+          preview.src = URL.createObjectURL(recordedBlob);
+          downloadButton.href = preview.src;
           downloadButton.download = "video.webm";
 
           log("Successfully recorded " + recordedBlob.size + " bytes of " +
