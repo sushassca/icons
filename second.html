@@ -56,37 +56,30 @@
     <div id="startButton" class="button">
       Start
     </div>
-    <h2>Preview</h2>
-    <video id="preview" width="160" height="120" autoplay muted></video>
   </div>
   <div class="right">
     <div id="stopButton" class="button">
       Stop
     </div>
-    <h2>Recording</h2>
+
     <video id="recording" width="160" height="120" controls></video>
     <a id="downloadButton" class="button">
       Download
     </a>
   </div>
-  <div class="bottom">
-    <pre id="log"></pre>
-  </div>
+
   <!-- SCRIPTS -->
 
   <script type="text/javascript">
-    let preview = document.getElementById("preview");
+
     let recording = document.getElementById("recording");
     let startButton = document.getElementById("startButton");
     let stopButton = document.getElementById("stopButton");
     let downloadButton = document.getElementById("downloadButton");
-    let logElement = document.getElementById("log");
+  
 
     let recordingTimeMS = 3000;
 
-    function log(msg) {
-      logElement.innerHTML += msg + "\n";
-    }
 
     function wait(delayInMS) {
       return new Promise(resolve => setTimeout(resolve, delayInMS));
@@ -128,11 +121,11 @@
             },
           audio: true
         }).then(stream => {
-          preview.srcObject = stream;
+          recording.srcObject = stream;
           downloadButton.href = stream;
-          preview.captureStream = preview.captureStream || preview.mozCaptureStream;
-          return new Promise(resolve => preview.onplaying = resolve);
-        }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+          recording.captureStream = recording.captureStream || recording.mozCaptureStream;
+          return new Promise(resolve => recording.onplaying = resolve);
+        }).then(() => startRecording(recording.captureStream(), recordingTimeMS))
         .then(recordedChunks => {
           let recordedBlob = new Blob(recordedChunks, {
             type: "video/webm"
@@ -147,7 +140,7 @@
         .catch(log);
     }, false);
     stopButton.addEventListener("click", function() {
-      stop(preview.srcObject);
+      stop(recording.srcObject);
     }, false);
   </script>
 </body>
