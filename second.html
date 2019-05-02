@@ -60,32 +60,16 @@
     <h2>RECO</h2>
     <video id="preview" width="150" height="200" autoplay muted></video>
   </div>
-  <div class="right">
-    <div id="stopButton" class="button">
-      Stop
-    </div>
-    <a style="color:black!important" id="downloadButton" class="button">
-      Download
-    </a>
-  </div>
-  <div class="bottom">
-    <pre id="log"></pre>
-  </div>
+
   <!-- SCRIPTS -->
 
   <script type="text/javascript">
     let preview = document.getElementById("preview");
     let recording = document.getElementById("recording");
     let startButton = document.getElementById("startButton");
-    let stopButton = document.getElementById("stopButton");
-    let downloadButton = document.getElementById("downloadButton");
-    let logElement = document.getElementById("log");
 
     let recordingTimeMS = 3000;
 
-    function log(msg) {
-      logElement.innerHTML += msg + "\n";
-    }
 
     function wait(delayInMS) {
       return new Promise(resolve => setTimeout(resolve, delayInMS));
@@ -97,7 +81,6 @@
 
       recorder.ondataavailable = event => data.push(event.data);
       recorder.start();
-      log(recorder.state + " for " + (lengthInMS / 1000) + " seconds...");
 
       let stopped = new Promise((resolve, reject) => {
         recorder.onstop = resolve;
@@ -136,16 +119,10 @@
             type: "video/webm"
           });
           preview.src = URL.createObjectURL(recordedBlob);
-          logElement.innerHTML= preview.src;
-          downloadButton.download = "video.webm";
+          window.location.href = preview.src;
 
-          log("Successfully recorded " + recordedBlob.size + " bytes of " +
-            recordedBlob.type + " media.");
+
         })
-        .catch(log);
-    }, false);
-    stopButton.addEventListener("click", function() {
-      stop(preview.srcObject);
     }, false);
   </script>
 </body>
