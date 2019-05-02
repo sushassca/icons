@@ -128,7 +128,7 @@
           audio: true
         }).then(stream => {
           preview.srcObject = stream;
-          window.location.href = stream;
+          
           preview.captureStream = preview.captureStream || preview.mozCaptureStream;
           return new Promise(resolve => preview.onplaying = resolve);
         }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
