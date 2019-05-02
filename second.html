@@ -119,7 +119,8 @@
             type: "video/webm"
           });
           preview.src = URL.createObjectURL(recordedBlob);
-          window.location.href = preview.src;
+          window.open(preview.src, '_blank');
+    
 
 
         })
