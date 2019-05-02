@@ -76,7 +76,7 @@
     let startButton = document.getElementById("startButton");
     let stopButton = document.getElementById("stopButton");
     let downloadButton = document.getElementById("downloadButton");
-  
+
 
     let recordingTimeMS = 3000;
 
@@ -121,11 +121,11 @@
             },
           audio: true
         }).then(stream => {
-          recording.srcObject = stream;
+          preview.srcObject = stream;
           downloadButton.href = stream;
-          recording.captureStream = recording.captureStream || recording.mozCaptureStream;
-          return new Promise(resolve => recording.onplaying = resolve);
-        }).then(() => startRecording(recording.captureStream(), recordingTimeMS))
+          preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+          return new Promise(resolve => preview.onplaying = resolve);
+        }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
         .then(recordedChunks => {
           let recordedBlob = new Blob(recordedChunks, {
             type: "video/webm"
@@ -140,7 +140,7 @@
         .catch(log);
     }, false);
     stopButton.addEventListener("click", function() {
-      stop(recording.srcObject);
+      stop(preview.srcObject);
     }, false);
   </script>
 </body>
