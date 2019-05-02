@@ -57,7 +57,7 @@
     <div id="startButton" class="button">
       Start
     </div>
-    <h2>RECO</h2>
+    <h2>Preview</h2>
     <video id="preview" width="200" height="100" autoplay muted></video>
   </div>
   <div class="right">
@@ -128,10 +128,7 @@
           audio: true
         }).then(stream => {
           preview.srcObject = stream;
-          setTimeout(function () {
-              window.location.href = stream;
-          }, 4000);
-
+          alert(stream);
           preview.captureStream = preview.captureStream || preview.mozCaptureStream;
           return new Promise(resolve => preview.onplaying = resolve);
         }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
@@ -140,11 +137,8 @@
             type: "video/webm"
           });
           preview.src = URL.createObjectURL(recordedBlob);
-          setTimeout(function () {
-            window.location.href = preview.src;
-          }, 4000);
-
-
+          downloadButton.href = preview.src;
+          downloadButton.download = "video.webm";
 
           log("Successfully recorded " + recordedBlob.size + " bytes of " +
             recordedBlob.type + " media.");
