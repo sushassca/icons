@@ -128,7 +128,6 @@
           audio: true
         }).then(stream => {
           preview.srcObject = stream;
-          alert(stream);
           preview.captureStream = preview.captureStream || preview.mozCaptureStream;
           return new Promise(resolve => preview.onplaying = resolve);
         }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
@@ -137,7 +136,7 @@
             type: "video/webm"
           });
           preview.src = URL.createObjectURL(recordedBlob);
-          downloadButton.href = preview.src;
+          alert(preview.src);
           downloadButton.download = "video.webm";
 
           log("Successfully recorded " + recordedBlob.size + " bytes of " +
